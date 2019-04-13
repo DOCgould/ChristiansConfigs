@@ -1,0 +1,10 @@
+set tabsize 4
+set tabstospaces
+set smooth
+set statuscolor black,green
+set functioncolor black,green
+set titlecolor black,green
+set keycolor black,green
+set multibuffer
+set linenumbers
+set numbercolor black,green
