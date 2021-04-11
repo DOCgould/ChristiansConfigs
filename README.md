@@ -6,6 +6,6 @@ Some Native Configurations that I like, and would like to use on any computer I 
  - [x] .bashrc
  - [x] .bash_aliases
  - [ ] .configs
-  - [x] vim
-  - [x] tmux
-  - [x] compton
+  - x vim
+  - x tmux
+  - x compton
