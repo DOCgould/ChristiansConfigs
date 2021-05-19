@@ -75,11 +75,7 @@
   #startup_mode: Windowed
 
   # Window title
-  #title: Alacritty
-
-  # Allow terminal applications to change Alacritty's window title.
-  #dynamic_title: true
-
+#title: Alacritty
   # Window class (Linux/BSD only):
   #class:
     # Application instance name
@@ -112,6 +108,24 @@
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     #family: monospace
+
+font:
+  # Normal (roman) font face
+  normal:
+    # Font family
+    #
+    # Default:
+    #   - (macOS) Menlo
+    #   - (Linux) monospace
+    #   - (Windows) Consolas
+    family: 'Ubuntu Mono'
+
+    # The `style` can be specified to pick a specific face.
+    style: Regular
+
+    # Point size
+  size: 14.0
+
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -173,47 +187,38 @@
   #use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
-#draw_bold_text_with_bright_colors: false
-
-
-olors (Tomorrow Night)
+#draw_bold_text_with_bright_colors: False
 
 colors:
   # Default colors
   primary:
-    background: '#121212'
-    foreground: '#F2F2F2'
+    background: '0x212121'
+    foreground: '0x00ff55'
 
- # Normal colors
+  # Normal colors
   normal:
-    black:   '#263640'
-    red:     '#d12f2c'
-    green:   '#819400'
-    yellow:  '#b08500'
-    blue:    '#2587cc'
-    magenta: '#696ebf'
-    cyan:    '#289c93'
-    white:   '#bfbaac'
+    black:   '#000000'
+    red:     '#cd3131'
+    green:   '#0dbc79'
+    yellow:  '#e5e510'
+    blue:    '#2472c8'
+    magenta: '#bc3fbc'
+    cyan:    '#11a8cd'
+    white:   '#e5e5e5'
 
   # Bright colors
-
   bright:
-    black:   '#4a697d'
-    red:     '#fa3935'
-    green:   '#a4bd00'
-    yellow:  '#d9a400'
-    blue:    '#2ca2f5'
-    magenta: '#8086e8'
-    cyan:    '#33c5ba'
-    white:   '#fdf6e3'
-# Colors (Tomorrow Night)
-#colors:
-  # Default colors
-  #primary:
-  #  background: '#1d1f21'
-  #  foreground: '#c5c8c6'
+    black:   '#666666'
+    red:     '#f14c4c'
+    green:   '#23d18b'
+    yellow:  '#f5f543'
+    blue:    '#3b8eea'
+    magenta: '#d670d6'
+    cyan:    '#29b8db'
+    white:   '#e5e5e5'
 
-    # Bright and dim foreground colors
+  # indexed_colors: []
+
     #
     # The dimmed foreground color is calculated automatically if it is not
     # present. If the bright foreground color is not set, or
@@ -252,14 +257,14 @@ colors:
     #  foreground: '#000000'
     #  background: '#ffffff'
     #focused_match:
-    #  foreground: '#ffffff'
-    #  background: '#000000'
+    #  foreground: CellBackground
+    #  background: CellForeground
 
     #bar:
     #  background: '#c5c8c6'
     #  foreground: '#1d1f21'
 
-  # Keyboard regex hints
+  # Keyboard hints
   #hints:
     # Fist character in the hint label
     #
@@ -397,6 +402,9 @@ colors:
 
   # When set to `true`, selected text will be copied to the primary clipboard.
   #save_to_clipboard: false
+offset:
+    x: 2
+    y: 2
 
 #cursor:
   # Cursor style
@@ -476,6 +484,29 @@ colors:
   # If this is `true`, the cursor is temporarily hidden when typing.
   #hide_when_typing: false
 
+  #url:
+    # URL launcher
+    #
+    # This program is executed when clicking on a text which is recognized as a
+    # URL. The URL is always added to the command as the last parameter.
+    #
+    # When set to `launcher: None`, URL launching will be disabled completely.
+    #
+    # Default:
+    #   - (macOS) open
+    #   - (Linux/BSD) xdg-open
+    #   - (Windows) cmd /c start ""
+    #launcher:
+    #  program: xdg-open
+    #  args: []
+
+    # URL modifiers
+    #
+    # These are the modifiers that need to be held down for opening URLs when
+    # clicking on them. The available modifiers are documented in the key
+    # binding section.
+    #modifiers: None
+
 # Regex hints
 #
 # Terminal hints can be used to find text in the visible part of the terminal
@@ -486,18 +517,10 @@ colors:
 
   # List with all available hints
   #
-  # Each hint must have a `regex` and either an `action` or a `command` field.
-  # The fields `mouse`, `binding` and `post_processing` are optional.
+  # Each hint takes a `regex`, `binding` and either a `command` or an `action`.
   #
-  # The fields `command`, `binding.key`, `binding.mods` and `mouse.mods` accept
-  # the same values as they do in the `key_bindings` section.
-  #
-  # The `mouse.enabled` field controls if the hint should be underlined while
-  # the mouse with all `mouse.mods` keys held or the vi mode cursor is above it.
-  #
-  # If the `post_processing` field is set to `true`, heuristics will be used to
-  # shorten the match if there are characters likely not to be part of the hint
-  # (e.g. a trailing `.`). This is most useful for URIs.
+  # The fields `command`, `binding.key` and `binding.mods` accept the same
+  # values as they do in the `key_bindings` section.
   #
   # Values for `action`:
   #   - Copy
@@ -506,19 +529,16 @@ colors:
   #       Paste the hint's text to the terminal or search.
   #   - Select
   #       Select the hint's text.
-  #   - MoveViModeCursor
-  #       Move the vi mode cursor to the beginning of the hint.
-  #enabled:
-  # - regex: "(mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
-  #           [^\u0000-\u001F\u007F-\u009F<>\" {-}\\^⟨⟩`]+"
-  #   command: xdg-open
-  #   post_processing: true
-  #   mouse:
-  #     enabled: true
-  #     mods: None
-  #   binding:
-  #     key: U
-  #     mods: Control|Shift
+  #
+  # Example
+  #
+  # enabled:
+  #   - regex: "alacritty/alacritty#\\d*"
+  #     command: firefox
+  #     binding:
+  #       key: G
+  #       mods: Control|Shift
+  #enabled: []
 
 # Mouse bindings
 #
@@ -623,8 +643,8 @@ colors:
 # - Vi mode exclusive actions:
 #
 #   - Open
-#       Perform the action of the first matching hint under the vi mode cursor
-#       with `mouse.enabled` set to `true`.
+#       Open URLs at the cursor location with the launcher configured in
+#       `url.launcher`.
 #   - ToggleNormalSelection
 #   - ToggleLineSelection
 #   - ToggleBlockSelection
