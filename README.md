@@ -6,6 +6,7 @@ Some Native Configurations that I like, and would like to use on any computer I 
  - [x] .bashrc
  - [x] .bash_aliases
  - [x] .configs
+
 ── gtk-2.0
 │   └── gtkfilechooser.ini
 ├── gtk-3.0
