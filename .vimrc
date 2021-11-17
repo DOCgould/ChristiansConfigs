@@ -1,7 +1,7 @@
 " plugins
 let need_to_install_plugins = 0
-if empty(glob('~/.config/vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     let need_to_install_plugins = 1
 endif
