@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
-let g:netrw_dirhist_3='/home/cgould/Workspace/san_diego_state_workspace/DiscreteGeometry/Assignments/Homework1'
-let g:netrw_dirhist_2='/home/cgould/Workspace/san_diego_state_workspace/DiscreteGeometry/Assignments'
-let g:netrw_dirhist_1='/home/cgould/Workspace/programming_workspace'
