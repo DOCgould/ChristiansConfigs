@@ -24,6 +24,8 @@ Plug 'lepture/vim-jinja'
 Plug 'pangloss/vim-javascript'
 Plug 'alvan/vim-closetag'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
 call plug#end()
 
 filetype plugin indent on
@@ -77,6 +79,21 @@ nmap <S-tab> <<
 imap <S-Tab> <Esc><<i
 vmap <Tab> >gv
 vmap <S-Tab> <gv
+
+augroup autoformat_settings
+    autocmd FileType bzl AutoFormatBuffer buildifier
+    autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
+    autocmd FileType dart AutoFormatBuffer dartfmt
+    autocmd FileType go AutoFormatBuffer gofmt
+    autocmd FileType gn AutoFormatBuffer gn
+    autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+    autocmd FileType java AutoFormatBuffer google-java-format
+    autocmd FileType python AutoFormatBuffer yapf
+    autocmd FileType python AutoFormatBuffer black
+    autocmd FileType rust AutoFormatBuffer rustfmt
+    autocmd FileType vue AutoFormatBuffer prettier
+    autocmd FileType swift AutoFormatBuffer swift-format
+augroup END
 
 " mouse
 set mouse=a
